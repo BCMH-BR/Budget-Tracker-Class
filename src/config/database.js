@@ -5,7 +5,7 @@ const connection = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  multipleStatements: true, //implementation - initial connection withou a database specified
+  multipleStatements: true, //implementation - initial connection without a database specified
 });
 
 function initDB() {
