@@ -4,14 +4,14 @@ const connection = require('./connection/database');
 const routes = express();
 
 routes.get('/', function(req, res) {
-    let sqlCreateDB = `CREATE DATABASE IF NOT EXISTS mysql_db;`;
+    let sqlCreateDB = `CREATE DATABASE IF NOT EXISTS mysql_db;`;//NAO FUNCIONA - TEM QUE CRIAR MANUALMENTE A DB
     connection.query(sqlCreateDB, function(err) {
         if (err) {
-            return res.status(500).send('Erro ao criar o banco de dados');
+            return res.status(500).send('Error creating database');
         }
         connection.query('USE mysql_db;', function(err) {
             if (err) {
-                return res.status(500).send('Erro ao selecionar o banco de dados');
+                return res.status(500).send('Error selecting database');
             }
             let sqlCreateUsersTable = `
                 CREATE TABLE IF NOT EXISTS Users(
@@ -21,7 +21,7 @@ routes.get('/', function(req, res) {
             `;
             connection.query(sqlCreateUsersTable, function(err) {
                 if (err) {
-                    return res.status(500).send('Erro ao criar a tabela Users');
+                    return res.status(500).send('Error creating users table');
                 }
                 let sqlCreateTransactionTypeTable = `
                     CREATE TABLE IF NOT EXISTS TransactionType(
@@ -31,7 +31,7 @@ routes.get('/', function(req, res) {
                 `;
                 connection.query(sqlCreateTransactionTypeTable, function(err) {
                     if (err) {
-                        return res.status(500).send('Erro ao criar a tabela TransactionType');
+                        return res.status(500).send('Error creating TransactionsType table');
                     }
                     let sqlCreateCategoryTable = `
                         CREATE TABLE IF NOT EXISTS Category(
@@ -43,7 +43,7 @@ routes.get('/', function(req, res) {
                     `;
                     connection.query(sqlCreateCategoryTable, function(err) {
                         if (err) {
-                            return res.status(500).send('Erro ao criar a tabela Category');
+                            return res.status(500).send('Error creating Category table');
                         }
                         let sqlCreateWalletTable = `
                             CREATE TABLE IF NOT EXISTS Wallet(
@@ -53,7 +53,7 @@ routes.get('/', function(req, res) {
                         `;
                         connection.query(sqlCreateWalletTable, function(err) {
                             if (err) {
-                                return res.status(500).send('Erro ao criar a tabela Wallet');
+                                return res.status(500).send('Error creating Wallet Table');
                             }
                             let sqlCreateTransactionsTable = `
                                 CREATE TABLE IF NOT EXISTS Transactions(
@@ -73,10 +73,10 @@ routes.get('/', function(req, res) {
                             `;
                             connection.query(sqlCreateTransactionsTable, function(err, results) {
                                 if (err) {
-                                    return res.status(500).send('Erro ao criar a tabela Transactions');
+                                    return res.status(500).send('Error creating Transaction Table');
                                 }
 
-                                return res.send('Banco de dados e tabelas criadas com sucesso');
+                                return res.send('Database and Tables were sucessfully created');
                             });
                         });
                     });
