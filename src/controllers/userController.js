@@ -13,7 +13,7 @@ const user = (req, res) => {
   }
 
   const add = "INSERT INTO Users (user_name) VALUES (?)";
-  connection.query(add, [user_name], (err, result) => {
+  connection.query(add, [user_name], (err) => {
     if (err) {
       console.error("Error inserting user:", err); //prints console
       return res.status(500).send("Error creating user"); //prints on the screen

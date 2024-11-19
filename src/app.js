@@ -1,6 +1,6 @@
 const express = require("express");
 const routes = require("./routes");
-const { connection, initDB } = require("./config/database");
+const { initDB } = require("./config/database");
 require("dotenv").config();
 
 const app = express();

@@ -12,6 +12,7 @@ function initDB() {
   connection.query("CREATE DATABASE IF NOT EXISTS mysql_db", (err) => {
     if (err) {
       console.error("Error creating database");
+      throw err;
     } else {
       console.log("Database created");
     }
@@ -19,6 +20,7 @@ function initDB() {
     connection.query("USE mysql_db", (err) => {
       if (err) {
         console.error("Error using the created DB");
+        throw err;
       } else {
         console.log("Using the new Database");
       }
@@ -28,6 +30,7 @@ function initDB() {
     connection.query(createUsersTable, function (err) {
       if (err) {
         console.error("Error creating Users table");
+        throw err;
       } else {
         console.log("Users Table Created");
       }
@@ -37,6 +40,7 @@ function initDB() {
     connection.query(createTransactionTypeTable, function (err) {
       if (err) {
         console.error("Error creating Transactions Type table");
+        throw err;
       } else {
         console.log("Transactions Table Created");
       }
@@ -46,6 +50,7 @@ function initDB() {
     connection.query(createCategoryTable, function (err) {
       if (err) {
         console.error("Error creating Categories table");
+        throw err;
       } else {
         console.log("Categories Table Created");
       }
@@ -55,6 +60,7 @@ function initDB() {
     connection.query(createWalletTable, function (err) {
       if (err) {
         console.error("Error creating Wallet table");
+        throw err;
       } else {
         console.log("Wallet Table Created");
       }
