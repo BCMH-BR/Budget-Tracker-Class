@@ -24,7 +24,7 @@ function initDB() {
       }
     });
 
-    const createUsersTable = ` CREATE TABLE IF NOT EXISTS Users(user_id INT AUTO_INCREMENT PRIMARY KEY,user_name VARCHAR(255))`;
+    const createUsersTable = `CREATE TABLE IF NOT EXISTS Users(user_id INT AUTO_INCREMENT PRIMARY KEY,user_name VARCHAR(255))`;
     connection.query(createUsersTable, function (err) {
       if (err) {
         console.error("Error creating Users table");
