@@ -24,7 +24,7 @@ decisions and savings habits.
 **Installation**
 
 1. **Clone the repository:**
-  git clone https://github.com/username/budget-tracker.git
+  git clone (https://github.com/BCMH-BR/Budget-Tracker-Class.git)
 
 2. **Navigate to the project directory:**
   cd budget-tracker
