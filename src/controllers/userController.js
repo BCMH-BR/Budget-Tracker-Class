@@ -5,7 +5,7 @@ const form = (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/index.html"));
 };
 
-const user = async (req, res) => {
+const user = (req, res) => {
   const { user_name } = req.body;
 
   if (!user_name || user_name.trim() === "") {
@@ -13,7 +13,7 @@ const user = async (req, res) => {
   }
 
   const add = "INSERT INTO Users (user_name) VALUES (?)";
-  await connection.query(add, [user_name], (err) => {
+  connection.query(add, [user_name], (err) => {
     if (err) {
       console.error("Error inserting user:", err); //prints console
       return res.status(500).send("Error creating user"); //prints on the screen

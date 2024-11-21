@@ -1,15 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Budget Tracker</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <form action="/user" method="POST">
-        <label for="user_name">Name:</label>
-        <input type="text" id="user_name" name="user_name" required>
-        <button type="submit">Submit</button>
-      </form>
-</body>
+      <label for="user_name">Name:</label>
+      <input type="text" id="user_name" name="user_name" required />
+      <button type="submit">Submit</button>
+    </form>
+
+    <a href="#" id="popup-link">Add Transaction</a>
+
+    <div id="addTransaction-window">
+      <button id="close-button">X</button>
+      <h1>Add Transaction</h1>
+    </div>
+
+    <script src="frontend/script.js"></script>
+  </body>
 </html>
