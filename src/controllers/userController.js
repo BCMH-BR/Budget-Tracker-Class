@@ -2,7 +2,7 @@ const path = require("path"); //NEW
 const { connection } = require("../config/database");
 
 const form = (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/form.html"));
+  res.sendFile(path.join(__dirname, "../frontend/login.html"));
 };
 
 const userTransaction = (req, res) => {
@@ -24,22 +24,19 @@ const userTransaction = (req, res) => {
 };
 
 const userInfo = (req, res) => {
-  const { name, second_name, email, age, phone, eircode } = req.body;
+  const { first_name, second_name, email, age, phone, eircode, password} = req.body;
 
-  if (!name || name.trim() === "") {
-    return res.status(400).send("Name is required");
-  }
 
   const add =
-    "INSERT INTO UsersInfo (user_name,second_name, email, age, phone, eircode) VALUES (?,?,?,?,?,?)";
+    "INSERT INTO UsersInfo (user_name,second_name, email, age, phone, eircode, password) VALUES (?,?,?,?,?,?,?)";
   connection.query(
     add,
-    [name, second_name, email, age, phone, eircode],
+    [first_name, second_name, email, age, phone, eircode, password],
     (err) => {
       if (err) {
         console.log("Error inserting user:", err);
       }
-      res.sendFile(path.join(__dirname, "../frontend/index.html"));
+      res.sendFile(path.join(__dirname, "../frontend/login.html"));
     }
   );
 };
@@ -56,4 +53,24 @@ const getTransactions = (req, res) => {
   });
 };
 
-module.exports = { form, userInfo, userTransaction, getTransactions };
+const loginUser = (req, res) => {
+  const { email, password } = req.body;
+
+  const query = "SELECT * FROM UsersInfo WHERE email = ?";
+
+  connection.query(query, [email], (err, results) => {
+    if (err) {
+      console.error("Error checking user:", err);
+      return res.status(500).send("Server error");
+    }
+
+    if (results.length > 0) {
+      // Add password checking logic here if implemented
+      res.sendFile(path.join(__dirname, "../frontend/index.html"));
+    } else {
+      res.status(401).send("Invalid email or password");
+    }
+  });
+};
+
+module.exports = { form, userInfo, userTransaction, getTransactions, loginUser};

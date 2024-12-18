@@ -7,6 +7,8 @@ routes.get("/", userController.form);
 
 routes.post("/submit", userController.userInfo);
 
+routes.post("/login", userController.loginUser);
+
 routes.post("/addTransaction", userController.userTransaction);
 
 routes.get("/transactions", userController.getTransactions);
