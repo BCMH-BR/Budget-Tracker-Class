@@ -11,11 +11,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "**Budget Tracker**",
   "dependencies": {
     "dotenv": "^16.4.5",
-    "express": "^4.21.1",
-    "mysql2": "^3.11.4"
+    "express": "^4.21.2",
+    "mysql2": "^3.11.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
