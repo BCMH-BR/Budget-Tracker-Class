@@ -12,7 +12,7 @@
         <p>Your easy-to-use budget tracker. Start today and take control of your money with confidence!</p>
         <form action="/submit" method="POST">
             <label for="name">What's your name?</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required maxlength="50">
+            <input type="text" id="name" name="name" placeholder="Enter your name" required maxlength="20">
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
@@ -24,7 +24,7 @@
             <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required pattern="\d{10}">
 
             <label for="eircode">Eircode:</label>
-            <input type="text" id="eircode" name="eircode" placeholder="Enter your Eircode" required maxlength="10">
+            <input type="text" id="eircode" name="eircode" placeholder="Enter your Eircode" required maxlength="6" pattern="^[0-9][A-Za-z0-9]{5}$" title="Eircode must start with a number and contain 6 alphanumeric characters.">
 
             <button type="submit" class="btn">Create Account</button>
         </form>
