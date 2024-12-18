@@ -42,3 +42,34 @@
               showModal('editTransactionModal');
           });
       });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("/transactions")
+          .then((response) => response.json())
+          .then((data) => {
+            const tableBody = document.getElementById("transactionTableBody");
+            tableBody.innerHTML = "";
+      
+            data.forEach((transaction) => {
+              const row = document.createElement("tr");
+      
+              row.innerHTML = `
+                <td>${new Date(transaction.Date).toLocaleDateString("en-GB", {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                })}</td>
+                <td>${transaction.type}</td>
+                <td>${transaction.Wallet}</td>
+                <td>${transaction.Description}</td>
+                <td>${transaction.Category}</td>
+                <td>${transaction.Value.toFixed(2)}</td>
+                <td>
+                  <button class="button edit-btn" data-id="${transaction.transaction_id}">Edit</button>
+                </td>
+              `;
+              tableBody.appendChild(row);
+            });
+          })
+          .catch((error) => console.error("Error fetching transactions:", error));
+      });

@@ -9,4 +9,6 @@ routes.post("/submit", userController.userInfo);
 
 routes.post("/addTransaction", userController.userTransaction);
 
+routes.get("/transactions", userController.getTransactions);
+
 module.exports = routes;

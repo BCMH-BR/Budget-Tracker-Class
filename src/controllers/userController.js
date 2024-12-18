@@ -40,4 +40,17 @@ const userInfo = (req, res) => {
   });
 };
 
-module.exports = { form, userInfo, userTransaction };
+const getTransactions = (req, res) => {
+  const query = "SELECT * FROM Transactions";
+  connection.query(query, (err, results) => {
+    if (err) {
+      console.error("Error fetching transactions:", err);
+      res.status(500).send("Error fetching transactions");
+    } else {
+      res.json(results);
+    }
+  });
+};
+
+module.exports = { form, userInfo, userTransaction, getTransactions };
+
