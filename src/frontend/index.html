@@ -31,22 +31,9 @@
                     <th>Value</th>
                 </tr>
             </thead>
-            <tbody>
                 <tbody id="transactionTableBody">
                     <!-- New transactions will be inserted here -->
-                </tbody>
-                <!--<tr>
-                    <td>01/09/2021</td>
-                    <td>Wallet A</td>
-                    <td>Bills</td>
-                    <td>Income</td>
-                    <td>+ $300.00</td>
-                    <td>
-                        <button class="button edit-btn" data-id="1">Edit</button>
-                    </td>
-                </tr>-->
-                
-            </tbody>
+                </tbody> 
         </table>
     </div>
 
@@ -80,33 +67,6 @@
         </div>
     </div>
 
-    <!-- Edit Transaction Modal -->
-    <div class="modal" id="editTransactionModal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('editTransactionModal')">&times;</span>
-            <div class="modal-header">Edit Transaction</div>
-            <form action="editTransaction" method="POST">
-              <label for="date">Date:</label><br>
-              <input type="date" id="date" name="date" required><br><br>
-              <label>Type:</label><br>
-              <select id="type" name="type" required> 
-                  <option value="Income">Income</option>
-                  <option value="Expense">Expense</option> 
-              </select><br><br>
-              <label>Wallet:</label><br>
-              <select id="walletDropdown" name="walletDropdown" required>
-                <option value="Other">Other</option>
-                <option value="Bank">Bank</option>
-                <option value="Cash">Cash</option> 
-              </select><br><br>
-              <label>Description:</label><br>
-              <input type="text" id="description" name="description" placeholder="Description" required><br><br>
-              <label>Category:</label><br>
-              <input type="text" id="category" name="category" placeholder="Category" required><br><br>
-              <label>Value:</label><br>
-              <input type="number" id="value" name="value" placeholder="Value" required><br><br>
-                <button type="submit" class="button">Update</button>
-            </form>
         </div>
     </div>
     <script src="../frontend/script.js"></script>

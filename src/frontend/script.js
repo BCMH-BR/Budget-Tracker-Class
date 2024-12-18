@@ -50,9 +50,19 @@
             const tableBody = document.getElementById("transactionTableBody");
             tableBody.innerHTML = "";
       
+            let total = 0; // To keep track of the total value
+      
             data.forEach((transaction) => {
               const row = document.createElement("tr");
       
+              // Adjust value based on type
+              const transactionValue = transaction.type === "Expense" 
+                ? -Math.abs(transaction.Value) 
+                : Math.abs(transaction.Value);
+      
+              total += transactionValue;
+      
+              // Add row to the table
               row.innerHTML = `
                 <td>${new Date(transaction.Date).toLocaleDateString("en-GB", {
                   day: "2-digit",
@@ -63,13 +73,23 @@
                 <td>${transaction.Wallet}</td>
                 <td>${transaction.Description}</td>
                 <td>${transaction.Category}</td>
-                <td>${transaction.Value.toFixed(2)}</td>
+                <td>${transactionValue.toFixed(2)}</td>
                 <td>
                   <button class="button edit-btn" data-id="${transaction.transaction_id}">Edit</button>
                 </td>
               `;
               tableBody.appendChild(row);
             });
+      
+            // Append total row at the end
+            const totalRow = document.createElement("tr");
+            totalRow.innerHTML = `
+              <td colspan="5" style="text-align: right; font-weight: bold;">Total</td>
+              <td style="font-weight: bold;">${total.toFixed(2)}</td>
+              <td></td>
+            `;
+            tableBody.appendChild(totalRow);
           })
           .catch((error) => console.error("Error fetching transactions:", error));
       });
+      
