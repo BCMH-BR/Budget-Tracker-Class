@@ -2,7 +2,7 @@ const path = require("path"); //NEW
 const { connection } = require("../config/database");
 
 const form = (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/index.html"));
+  res.sendFile(path.join(__dirname, "../frontend/form.html"));
 };
 
 const user = (req, res) => {

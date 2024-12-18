@@ -1,0 +1,98 @@
+  /* General Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body and Background Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('background-image.png') no-repeat center center/cover;
+    color: #fff;
+}
+
+/* Main Container */
+.container {
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Title and Subtitle */
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-align: center;
+}
+.container p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ddd;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #ccc;
+}
+
+form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+form input:focus {
+    border: 1px solid #7b68ee;
+}
+
+/* Button Styling */
+.btn {
+    background-color: #7b68ee;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #6a5acd;
+}
+
+/* Footer Link */
+.footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+.footer a {
+    color: #7b68ee;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
