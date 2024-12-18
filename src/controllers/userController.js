@@ -5,6 +5,24 @@ const form = (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/form.html"));
 };
 
+const userTransaction = (req, res) => {
+  const { date, type, walletDropdown, description, category, value } = req.body;
+
+  const add =
+    "INSERT INTO Transactions ( Date, type, Wallet, Description, Category, Value) VALUES (?,?,?,?,?,?)";
+
+  connection.query(
+    add,
+    [date, type, walletDropdown, description, category, value],
+    (err) => {
+      if (err) {
+        console.log("error inserting transaction: ", err);
+      }
+      res.send("Transaction Sucessfull added");
+    }
+  );
+};
+
 const userInfo = (req, res) => {
   const { name, email, age, phone, eircode } = req.body;
 
@@ -22,4 +40,4 @@ const userInfo = (req, res) => {
   });
 };
 
-module.exports = { form, userInfo };
+module.exports = { form, userInfo, userTransaction };

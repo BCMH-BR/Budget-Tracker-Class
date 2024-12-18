@@ -24,11 +24,11 @@
             <thead>
                 <tr>
                     <th>Date</th>
+                    <th>Type</th>
                     <th>Wallet</th>
                     <th>Description</th>
                     <th>Category</th>
                     <th>Value</th>
-                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -56,20 +56,25 @@
             <span class="close-btn" onclick="closeModal('addTransactionModal')">&times;</span>
             <div class="modal-header">Add Transaction</div>
             <form action="/addTransaction" method="POST">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date"> 
+                <label>Wallet:</label><br><br>
                 <label>Type:</label><br>
                 <select id="type" name="type"> 
                     <option value="Income">Income</option>
                     <option value="Expense">Expense</option> 
                 </select><br><br>
-                <label>Wallet:</label><br>
-                <select id="walletDropdown" required>
+                
+                <select id="walletDropdown" name="walletDropdown" required>
                   <option value="Bank">Bank</option>
                   <option value="Cash">Cash</option> 
                 </select><br><br>
+                <label>Description:</label><br>
+                <input type="text" id="description" name="description" placeholder="Description"><br><br>
                 <label>Category:</label><br>
-                <input type="text" placeholder="Category"><br><br>
+                <input type="text" id="category" name="category" placeholder="Category"><br><br>
                 <label>Value:</label><br>
-                <input type="number" placeholder="Value"><br><br>
+                <input type="number" id="value" name="value" placeholder="Value"><br><br>
                 <button type="submit" class="button">Save</button>
             </form>
         </div>
