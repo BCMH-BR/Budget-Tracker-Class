@@ -18,7 +18,6 @@
 
         <!-- Buttons to Open Modals -->
         <button class="button" id="addTransactionBtn">Add Transaction</button>
-        <button class="button" id="createWalletBtn">Create Wallet</button>
 
         <!-- Transaction Table -->
         <table>
@@ -56,7 +55,7 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('addTransactionModal')">&times;</span>
             <div class="modal-header">Add Transaction</div>
-            <form>
+            <form action="/addTransaction" method="POST">
                 <label>Type:</label><br>
                 <select id="type" name="type"> 
                     <option value="Income">Income</option>
@@ -64,7 +63,8 @@
                 </select><br><br>
                 <label>Wallet:</label><br>
                 <select id="walletDropdown" required>
-                    <!-- Wallets will be dynamically populated here -->
+                  <option value="Bank">Bank</option>
+                  <option value="Cash">Cash</option> 
                 </select><br><br>
                 <label>Category:</label><br>
                 <input type="text" placeholder="Category"><br><br>
@@ -75,27 +75,12 @@
         </div>
     </div>
 
-    <!-- Create Wallet Modal -->
-    <div class="modal" id="createWalletModal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('createWalletModal')">&times;</span>
-            <div class="modal-header">Create Wallet</div>
-            <form>
-                <label>Wallet Name:</label><br>
-                <input type="text" placeholder="Enter Wallet Name"><br><br>
-                <label>Initial Value:</label><br>
-                <input type="number" placeholder="initialValue"><br><br>
-                <button type="submit" class="button">Create</button>
-            </form>
-        </div>
-    </div>
-
     <!-- Edit Transaction Modal -->
     <div class="modal" id="editTransactionModal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('editTransactionModal')">&times;</span>
             <div class="modal-header">Edit Transaction</div>
-            <form>
+            <form action="editTransaction" method="POST">
                 <label>Type:</label><br>
                 <select id="type" name="type"> 
                     <option value="Income">Income</option>
@@ -103,7 +88,8 @@
                 </select><br><br>
                 <label>Wallet:</label><br>
                 <select id="walletDropdown" required>
-                    <!-- Wallets will be dynamically populated here -->
+                  <option value="Bank">Bank</option>
+                  <option value="Cash">Cash</option> 
                 </select><br><br>
                 <label>Category:</label><br>
                 <input type="text" placeholder="Category"><br><br>

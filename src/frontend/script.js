@@ -36,10 +36,6 @@
           showModal('addTransactionModal');
       });
 
-      document.getElementById('createWalletBtn').addEventListener('click', function () {
-          showModal('createWalletModal');
-      });
-
       // Edit Buttons (Dynamic Example)
       document.querySelectorAll('.edit-btn').forEach(button => {
           button.addEventListener('click', function () {
