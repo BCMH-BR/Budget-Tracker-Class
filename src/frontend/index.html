@@ -56,14 +56,14 @@
             <span class="close-btn" onclick="closeModal('addTransactionModal')">&times;</span>
             <div class="modal-header">Add Transaction</div>
             <form action="/addTransaction" method="POST">
-                <label for="date">Date</label>
-                <input type="date" id="date" name="date"> 
+                <label for="date">Date:</label><br>
+                <input type="date" id="date" name="date"><br><br>
                 <label>Type:</label><br>
                 <select id="type" name="type"> 
                     <option value="Income">Income</option>
                     <option value="Expense">Expense</option> 
                 </select><br><br>
-                <label>Wallet:</label><br><br>
+                <label>Wallet:</label><br>
                 <select id="walletDropdown" name="walletDropdown" required>
                   <option value="Bank">Bank</option>
                   <option value="Cash">Cash</option> 
