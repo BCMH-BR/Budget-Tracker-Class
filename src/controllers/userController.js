@@ -18,7 +18,7 @@ const userInfo = (req, res) => {
     if (err) {
       console.log("Error inserting user:", err);
     }
-    res.send("user successfully added");
+    res.sendFile(path.join(__dirname, "../frontend/index.html"));
   });
 };
 

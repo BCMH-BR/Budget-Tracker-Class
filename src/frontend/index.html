@@ -3,23 +3,116 @@
   <head>
     <meta charset="UTF-8" />
     <title>Budget Tracker</title>
+    <link rel="stylesheet" href="../frontend/style.css" type="text/css">
   </head>
   <body>
-    <form action="/user" method="POST">
-      <label for="user_name">Name:</label>
-      <input type="text" id="user_name" name="user_name" required />
-      <button type="submit">Submit</button>
-    </form>
+    <!-- Header -->
+    <header>
+        <h1>Welcome to BCMH Tracker</h1>
+        <p>Manage your finances efficiently!</p>
+    </header>
 
-    <!-- Using the DOM createa  class a and div addtransaction
-     Using the DOM tree Structure append the child class to the parent class 
-      -->
-    <a href="#" id="popup-link">Add Transaction</a>
-    <!-- <div id="addTransaction-window">
-      <button id="close-button">X</button>
-      <h1>Add Transaction</h1>
-    </div> -->
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Hello Barbara,</h2>
 
+        <!-- Buttons to Open Modals -->
+        <button class="button" id="addTransactionBtn">Add Transaction</button>
+        <button class="button" id="createWalletBtn">Create Wallet</button>
+
+        <!-- Transaction Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Wallet</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Value</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tbody id="transactionTableBody">
+                    <!-- New transactions will be inserted here -->
+                </tbody>
+                <!--<tr>
+                    <td>01/09/2021</td>
+                    <td>Wallet A</td>
+                    <td>Bills</td>
+                    <td>Income</td>
+                    <td>+ $300.00</td>
+                    <td>
+                        <button class="button edit-btn" data-id="1">Edit</button>
+                    </td>
+                </tr>-->
+                
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add Transaction Modal -->
+    <div class="modal" id="addTransactionModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('addTransactionModal')">&times;</span>
+            <div class="modal-header">Add Transaction</div>
+            <form>
+                <label>Type:</label><br>
+                <select id="type" name="type"> 
+                    <option value="Income">Income</option>
+                    <option value="Expense">Expense</option> 
+                </select><br><br>
+                <label>Wallet:</label><br>
+                <select id="walletDropdown" required>
+                    <!-- Wallets will be dynamically populated here -->
+                </select><br><br>
+                <label>Category:</label><br>
+                <input type="text" placeholder="Category"><br><br>
+                <label>Value:</label><br>
+                <input type="number" placeholder="Value"><br><br>
+                <button type="submit" class="button">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Create Wallet Modal -->
+    <div class="modal" id="createWalletModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('createWalletModal')">&times;</span>
+            <div class="modal-header">Create Wallet</div>
+            <form>
+                <label>Wallet Name:</label><br>
+                <input type="text" placeholder="Enter Wallet Name"><br><br>
+                <label>Initial Value:</label><br>
+                <input type="number" placeholder="initialValue"><br><br>
+                <button type="submit" class="button">Create</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Transaction Modal -->
+    <div class="modal" id="editTransactionModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('editTransactionModal')">&times;</span>
+            <div class="modal-header">Edit Transaction</div>
+            <form>
+                <label>Type:</label><br>
+                <select id="type" name="type"> 
+                    <option value="Income">Income</option>
+                    <option value="Expense">Expense</option> 
+                </select><br><br>
+                <label>Wallet:</label><br>
+                <select id="walletDropdown" required>
+                    <!-- Wallets will be dynamically populated here -->
+                </select><br><br>
+                <label>Category:</label><br>
+                <input type="text" placeholder="Category"><br><br>
+                <label>Value:</label><br>
+                <input type="number" placeholder="Value"><br><br>
+                <button type="submit" class="button">Update</button>
+            </form>
+        </div>
+    </div>
     <script src="../frontend/script.js"></script>
   </body>
 </html>
