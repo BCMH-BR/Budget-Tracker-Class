@@ -5,6 +5,10 @@ const form = (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/form.html"));
 };
 
+const userInfo = (req, res) => {
+  
+}
+
 const user = (req, res) => {
   const { user_name } = req.body;
 
