@@ -18,7 +18,7 @@ const userTransaction = (req, res) => {
       if (err) {
         console.log("error inserting transaction: ", err);
       }
-      res.send("Transaction Sucessfull added");
+      res.sendFile(path.join(__dirname, "../frontend/index.html"));
     }
   );
 };

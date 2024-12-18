@@ -37,7 +37,7 @@ function initDB() {
       }
     });
 
-    // const createUsersTable = `CREATE TABLE IF NOT EXISTS Users(user_id INT AUTO_INCREMENT PRIMARY KEY,user_name VARCHAR(255))`;
+    // const createUsersTable = CREATE TABLE IF NOT EXISTS Users(user_id INT AUTO_INCREMENT PRIMARY KEY,user_name VARCHAR(255));
     // connection.query(createUsersTable, function (err) {
     //   if (err) {
     //     console.error("Error creating Users table");
@@ -47,7 +47,7 @@ function initDB() {
     //   }
     // });
 
-    // const createTransactionTypeTable = `CREATE TABLE IF NOT EXISTS TransactionType(type_id INT AUTO_INCREMENT PRIMARY KEY,type_name VARCHAR(255));`;
+    // const createTransactionTypeTable = CREATE TABLE IF NOT EXISTS TransactionType(type_id INT AUTO_INCREMENT PRIMARY KEY,type_name VARCHAR(255));;
     // connection.query(createTransactionTypeTable, function (err) {
     //   if (err) {
     //     console.error("Error creating Transactions Type table");
@@ -57,7 +57,7 @@ function initDB() {
     //   }
     // });
 
-    // const createCategoryTable = `CREATE TABLE IF NOT EXISTS Categories(category_id INT AUTO_INCREMENT PRIMARY KEY,category_name VARCHAR(255),type_id INT,FOREIGN KEY (type_id) REFERENCES TransactionType (type_id));`;
+    // const createCategoryTable = CREATE TABLE IF NOT EXISTS Categories(category_id INT AUTO_INCREMENT PRIMARY KEY,category_name VARCHAR(255),type_id INT,FOREIGN KEY (type_id) REFERENCES TransactionType (type_id));;
     // connection.query(createCategoryTable, function (err) {
     //   if (err) {
     //     console.error("Error creating Categories table");
@@ -77,7 +77,7 @@ function initDB() {
     //   }
     // });
 
-    // const createTransactionsTable = `CREATE TABLE IF NOT EXISTS Transactions(transaction_id INT AUTO_INCREMENT PRIMARY KEY,type_id INT,FOREIGN KEY (type_id) REFERENCES TransactionType (type_id),category_id INT,FOREIGN KEY (category_id) REFERENCES Categories (category_id),transaction_description VARCHAR(255),amount DOUBLE,transaction_date DATE,wallet_id INT,FOREIGN KEY (wallet_id) REFERENCES Wallet (wallet_id),user_id INT,FOREIGN KEY (user_id) REFERENCES Users (user_id));`;
+    // const createTransactionsTable = CREATE TABLE IF NOT EXISTS Transactions(transaction_id INT AUTO_INCREMENT PRIMARY KEY,type_id INT,FOREIGN KEY (type_id) REFERENCES TransactionType (type_id),category_id INT,FOREIGN KEY (category_id) REFERENCES Categories (category_id),transaction_description VARCHAR(255),amount DOUBLE,transaction_date DATE,wallet_id INT,FOREIGN KEY (wallet_id) REFERENCES Wallet (wallet_id),user_id INT,FOREIGN KEY (user_id) REFERENCES Users (user_id));;
 
     const createTransactionsTable = `CREATE TABLE IF NOT EXISTS Transactions (
     transaction_id INT AUTO_INCREMENT PRIMARY KEY, 
