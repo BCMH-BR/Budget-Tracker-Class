@@ -6,24 +6,20 @@ const form = (req, res) => {
 };
 
 const userInfo = (req, res) => {
-  
-}
+  const { name, email, age, phone, eircode } = req.body;
 
-const user = (req, res) => {
-  const { user_name } = req.body;
-
-  if (!user_name || user_name.trim() === "") {
+  if (!name || name.trim() === "") {
     return res.status(400).send("Name is required");
   }
 
-  const add = "INSERT INTO Users (user_name) VALUES (?)";
-  connection.query(add, [user_name], (err) => {
+  const add =
+    "INSERT INTO UsersInfo (user_name, email, age, phone, eircode) VALUES (?,?,?,?,?)";
+  connection.query(add, [name, email, age, phone, eircode], (err) => {
     if (err) {
-      console.error("Error inserting user:", err); //prints console
-      return res.status(500).send("Error creating user"); //prints on the screen
+      console.log("Error inserting user:", err);
     }
-    res.send("User successfully created");
+    res.send("user successfully added");
   });
 };
 
-module.exports = { form, user };
+module.exports = { form, userInfo };

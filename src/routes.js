@@ -5,6 +5,6 @@ const routes = express();
 
 routes.get("/", userController.form);
 
-routes.post("/user", userController.user);
+routes.post("/submit", userController.userInfo);
 
 module.exports = routes;
