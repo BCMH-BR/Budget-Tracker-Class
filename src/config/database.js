@@ -26,7 +26,7 @@ function initDB() {
       }
     });
 
-    const createUserInfoTable = `CREATE TABLE IF NOT EXISTS UsersInfo (userInfo_id INT AUTO_INCREMENT PRIMARY KEY, user_name VARCHAR(255), email VARCHAR(255) UNIQUE, age INT, phone VARCHAR(15), eircode 
+    const createUserInfoTable = `CREATE TABLE IF NOT EXISTS UsersInfo (userInfo_id INT AUTO_INCREMENT PRIMARY KEY, user_name VARCHAR(255),second_name VARCHAR(255), email VARCHAR(255) UNIQUE, age INT, phone VARCHAR(15), eircode 
     VARCHAR(10))`;
     connection.query(createUserInfoTable, function (err) {
       if (err) {
