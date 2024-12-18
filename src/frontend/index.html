@@ -57,23 +57,24 @@
             <div class="modal-header">Add Transaction</div>
             <form action="/addTransaction" method="POST">
                 <label for="date">Date:</label><br>
-                <input type="date" id="date" name="date"><br><br>
+                <input type="date" id="date" name="date" required><br><br>
                 <label>Type:</label><br>
-                <select id="type" name="type"> 
+                <select id="type" name="type" required> 
                     <option value="Income">Income</option>
                     <option value="Expense">Expense</option> 
                 </select><br><br>
                 <label>Wallet:</label><br>
                 <select id="walletDropdown" name="walletDropdown" required>
+                  <option value="Other">Other</option>
                   <option value="Bank">Bank</option>
                   <option value="Cash">Cash</option> 
                 </select><br><br>
                 <label>Description:</label><br>
-                <input type="text" id="description" name="description" placeholder="Description"><br><br>
+                <input type="text" id="description" name="description" placeholder="Description" required><br><br>
                 <label>Category:</label><br>
-                <input type="text" id="category" name="category" placeholder="Category"><br><br>
+                <input type="text" id="category" name="category" placeholder="Category" required><br><br>
                 <label>Value:</label><br>
-                <input type="number" id="value" name="value" placeholder="Value"><br><br>
+                <input type="number" id="value" name="value" placeholder="Value" required><br><br>
                 <button type="submit" class="button">Save</button>
             </form>
         </div>
@@ -85,20 +86,25 @@
             <span class="close-btn" onclick="closeModal('editTransactionModal')">&times;</span>
             <div class="modal-header">Edit Transaction</div>
             <form action="editTransaction" method="POST">
-                <label>Type:</label><br>
-                <select id="type" name="type"> 
-                    <option value="Income">Income</option>
-                    <option value="Expense">Expense</option> 
-                </select><br><br>
-                <label>Wallet:</label><br>
-                <select id="walletDropdown" required>
-                  <option value="Bank">Bank</option>
-                  <option value="Cash">Cash</option> 
-                </select><br><br>
-                <label>Category:</label><br>
-                <input type="text" placeholder="Category"><br><br>
-                <label>Value:</label><br>
-                <input type="number" placeholder="Value"><br><br>
+              <label for="date">Date:</label><br>
+              <input type="date" id="date" name="date" required><br><br>
+              <label>Type:</label><br>
+              <select id="type" name="type" required> 
+                  <option value="Income">Income</option>
+                  <option value="Expense">Expense</option> 
+              </select><br><br>
+              <label>Wallet:</label><br>
+              <select id="walletDropdown" name="walletDropdown" required>
+                <option value="Other">Other</option>
+                <option value="Bank">Bank</option>
+                <option value="Cash">Cash</option> 
+              </select><br><br>
+              <label>Description:</label><br>
+              <input type="text" id="description" name="description" placeholder="Description" required><br><br>
+              <label>Category:</label><br>
+              <input type="text" id="category" name="category" placeholder="Category" required><br><br>
+              <label>Value:</label><br>
+              <input type="number" id="value" name="value" placeholder="Value" required><br><br>
                 <button type="submit" class="button">Update</button>
             </form>
         </div>
