@@ -109,9 +109,8 @@ function validateForm() {
   let nameRegex = /^[a-zA-Z0-9]{1,20}$/;
   let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   let phoneRegex = /^\d{10}$/;
-  let eircodeRegex = /^[A-Za-z][A-Za-z0-9]{5}$/;
-  let passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
+  let eircodeRegex = /^[0-9][A-Za-z0-9]{5}$$/;
+  let passwordRegex =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
 
   // Validation checks
   if (!nameRegex.test(firstName)) {
@@ -136,7 +135,7 @@ function validateForm() {
   }
   if (!eircodeRegex.test(eircode)) {
     alert(
-      "Eircode must start with a letter, be alphanumeric, and have exactly 6 characters."
+      "Eircode must start with a number, be alphanumeric, and have exactly 6 characters."
     );
     return false;
   }
