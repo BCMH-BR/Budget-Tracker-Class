@@ -94,8 +94,4 @@
       });
       
 
-      // Name, Age, Email, Phone Number, Eircode, Password
-      const csvData = `"John, Doe",30,"johndoe@example.com",0893216548,1YR5DD,"Password@123"
-      "Jane, Smith",28,"janesmith@example.com",0892856548,8MH7WE,"SecurePass!456"
-      "Michael, Johnson",35,"michaeljohnson@example.com",0898523694,7RP0RR,"StrongPass#789"
-      "Tommy, Bean",40,"tommybean@example.com",0894859612,EYR5DD,"TommyPass$321"`
+      
