@@ -24,8 +24,8 @@ const userTransaction = (req, res) => {
 };
 
 const userInfo = (req, res) => {
-  const { first_name, second_name, email, age, phone, eircode, password} = req.body;
-
+  const { first_name, second_name, email, age, phone, eircode, password } =
+    req.body;
 
   const add =
     "INSERT INTO mysql_table (first_name,second_name, email, age, phone, eircode, password) VALUES (?,?,?,?,?,?,?)";
@@ -68,9 +68,16 @@ const loginUser = (req, res) => {
       // Add password checking logic here if implemented
       res.sendFile(path.join(__dirname, "../frontend/index.html"));
     } else {
-      res.status(401).send("Invalid email or password");
+      alert("Invalid email or password");
+      res.status(401);
     }
   });
 };
 
-module.exports = { form, userInfo, userTransaction, getTransactions, loginUser};
+module.exports = {
+  form,
+  userInfo,
+  userTransaction,
+  getTransactions,
+  loginUser,
+};
