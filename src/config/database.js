@@ -26,14 +26,14 @@ function initDB() {
       }
     });
 
-    const createUserInfoTable = `CREATE TABLE IF NOT EXISTS UsersInfo (userInfo_id INT AUTO_INCREMENT PRIMARY KEY, first_name VARCHAR(255),second_name VARCHAR(255), email VARCHAR(255) UNIQUE, age INT, phone VARCHAR(15), eircode 
+    const createUserInfoTable = `CREATE TABLE IF NOT EXISTS mysql_table (userInfo_id INT AUTO_INCREMENT PRIMARY KEY, first_name VARCHAR(255),second_name VARCHAR(255), email VARCHAR(255) UNIQUE, age INT, phone VARCHAR(15), eircode 
     VARCHAR(10), password VARCHAR(255))`;
     connection.query(createUserInfoTable, function (err) {
       if (err) {
-        console.error("Error creating Users Info table");
+        console.error("Error creating Users Info (mysql_table) table");
         throw err;
       } else {
-        console.log("Users Info Table Created");
+        console.log("Users Info (mtsql_table) Table Created");
       }
     });
 
@@ -41,23 +41,26 @@ function initDB() {
     const csvData = `"John, Doe",30,"johndoe@example.com",0893216548,1YR5DD,"Password@123"
     "Jane, Smith",28,"janesmith@example.com",0892856548,8MH7WE,"SecurePass!456"
     "Michael, Johnson",35,"michaeljohnson@example.com",0898523694,7RP0RR,"StrongPass#789"
-    "Tommy, Bean",40,"tommybean@example.com",0894859612,EYR5DD,"TommyPass$321"`
+    "Tommy, Bean",40,"tommybean@example.com",0894859612,EYR5DD,"TommyPass$321"`;
 
     // Parse and insert CSV data into UsersInfo table
-    csvData.split('\n').forEach(line => {
+    csvData.split("\n").forEach((line) => {
       if (line.trim()) {
         // Split by comma while respecting quotes
         const matches = line.match(/(".*?"|[^,\s]+)(?=\s*,|\s*$)/g);
-        const values = matches.map(val => val.replace(/^"|"$/g, '').trim());
-        
-        const [fullName, age, email, phone, eircode, password] = values;
-        const [firstName, secondName] = fullName.split(',').map(name => name.trim());
+        const values = matches.map((val) => val.replace(/^"|"$/g, "").trim());
 
-        const insertQuery = `INSERT IGNORE INTO UsersInfo 
+        const [fullName, age, email, phone, eircode, password] = values;
+        const [firstName, secondName] = fullName
+          .split(",")
+          .map((name) => name.trim());
+
+        const insertQuery = `INSERT IGNORE INTO mysql_table 
           (first_name, second_name, email, age, phone, eircode, password) 
           VALUES (?, ?, ?, ?, ?, ?, ?)`;
 
-        connection.query(insertQuery, 
+        connection.query(
+          insertQuery,
           [firstName, secondName, email, age, phone, eircode, password],
           (err) => {
             if (err) {
@@ -69,7 +72,6 @@ function initDB() {
         );
       }
     });
-
 
     const createTransactionsTable = `CREATE TABLE IF NOT EXISTS Transactions (
     transaction_id INT AUTO_INCREMENT PRIMARY KEY, 
