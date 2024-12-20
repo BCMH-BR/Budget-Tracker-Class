@@ -33,7 +33,7 @@ function initDB() {
         console.error("Error creating Users Info (mysql_table) table");
         throw err;
       } else {
-        console.log("Users Info (mtsql_table) Table Created");
+        console.log("Users Info (mysql_table) Table Created");
       }
     });
 

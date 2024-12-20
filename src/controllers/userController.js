@@ -28,7 +28,7 @@ const userInfo = (req, res) => {
 
 
   const add =
-    "INSERT INTO UsersInfo (user_name,second_name, email, age, phone, eircode, password) VALUES (?,?,?,?,?,?,?)";
+    "INSERT INTO mysql_table (first_name,second_name, email, age, phone, eircode, password) VALUES (?,?,?,?,?,?,?)";
   connection.query(
     add,
     [first_name, second_name, email, age, phone, eircode, password],
@@ -56,7 +56,7 @@ const getTransactions = (req, res) => {
 const loginUser = (req, res) => {
   const { email, password } = req.body;
 
-  const query = "SELECT * FROM UsersInfo WHERE email = ?";
+  const query = "SELECT * FROM mysql_table WHERE email = ?";
 
   connection.query(query, [email], (err, results) => {
     if (err) {
