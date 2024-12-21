@@ -26,7 +26,7 @@ function initDB() {
       }
     });
 
-    const createUserInfoTable = `CREATE TABLE IF NOT EXISTS mysql_table (userInfo_id INT AUTO_INCREMENT PRIMARY KEY, first_name VARCHAR(255),second_name VARCHAR(255), email VARCHAR(255) UNIQUE, age INT, phone VARCHAR(15), eircode 
+    const createUserInfoTable = `CREATE TABLE IF NOT EXISTS mysql_table (userInfo_id INT AUTO_INCREMENT PRIMARY KEY, first_name VARCHAR(255),second_name VARCHAR(255), email VARCHAR(255) UNIQUE, age INT, phone VARCHAR(15), eircode
     VARCHAR(10), password VARCHAR(255))`;
     connection.query(createUserInfoTable, function (err) {
       if (err) {
@@ -55,8 +55,8 @@ function initDB() {
           .split(",")
           .map((name) => name.trim());
 
-        const insertQuery = `INSERT IGNORE INTO mysql_table 
-          (first_name, second_name, email, age, phone, eircode, password) 
+        const insertQuery = `INSERT IGNORE INTO mysql_table
+          (first_name, second_name, email, age, phone, eircode, password)
           VALUES (?, ?, ?, ?, ?, ?, ?)`;
 
         connection.query(
@@ -68,19 +68,21 @@ function initDB() {
             } else {
               console.log("Sample user data inserted successfully");
             }
-          }
+          },
         );
       }
     });
 
     const createTransactionsTable = `CREATE TABLE IF NOT EXISTS Transactions (
-    transaction_id INT AUTO_INCREMENT PRIMARY KEY, 
-    Date DATE, 
-    type VARCHAR(255), 
-    Wallet VARCHAR(255), 
-    Description VARCHAR(255), 
-    Category VARCHAR(355), 
-    Value DOUBLE
+    transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+    Date DATE,
+    type VARCHAR(255),
+    Wallet VARCHAR(255),
+    Description VARCHAR(255),
+    Category VARCHAR(355),
+    Value DOUBLE,
+    userInfo_id INT,
+    FOREIGN KEY (userInfo_id) REFERENCES mysql_table(userInfo_id) ON DELETE CASCADE
 );`;
 
     connection.query(createTransactionsTable, function (err) {
