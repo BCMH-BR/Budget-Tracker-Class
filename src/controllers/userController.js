@@ -97,7 +97,6 @@ const loginUser = (req, res) => {
         loggedUserinfo = user;
         console.log("Logged in user:", loggedUserinfo);
 
-        // Carregar o arquivo HTML
         const fs = require("fs");
         const indexPath = path.join(__dirname, "../frontend/index.html");
 
