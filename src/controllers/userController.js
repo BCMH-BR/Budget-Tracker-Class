@@ -89,12 +89,12 @@ const loginUser = (req, res) => {
     .query(query, [email])
     .then(([rows]) => {
       if (rows.length > 0) {
-        const { password: __, ...user } = rows[0]; // Retirando a senha
+        const { password: __, ...user } = rows[0]; // desestructuring the user object and ignoring the password
         if (rows[0].password !== password) {
           res.status(401).send("Invalid email or password");
           return;
         }
-        loggedUserinfo = user; // Armazenando informações do usuário
+        loggedUserinfo = user;
         console.log("Logged in user:", loggedUserinfo);
         res.sendFile(path.join(__dirname, "../frontend/index.html"));
       } else {
