@@ -89,14 +89,33 @@ const loginUser = (req, res) => {
     .query(query, [email])
     .then(([rows]) => {
       if (rows.length > 0) {
-        const { password: __, ...user } = rows[0]; // desestructuring the user object and ignoring the password
+        const { password: __, ...user } = rows[0]; // destructuring the user object and ignoring the password
         if (rows[0].password !== password) {
           res.status(401).send("Invalid email or password");
           return;
         }
         loggedUserinfo = user;
         console.log("Logged in user:", loggedUserinfo);
-        res.sendFile(path.join(__dirname, "../frontend/index.html"));
+
+        // Carregar o arquivo HTML
+        const fs = require("fs");
+        const indexPath = path.join(__dirname, "../frontend/index.html");
+
+        fs.readFile(indexPath, "utf8", (err, data) => {
+          if (err) {
+            console.error("Error reading HTML file:", err);
+            res.status(500).send("Error loading page");
+            return;
+          }
+
+          // Changing the 'user' name displayed on the front end trhough the HTML file
+          const updatedHTML = data.replace(
+            "Hello User",
+            `Hello ${loggedUserinfo.first_name}`,
+          );
+
+          res.send(updatedHTML);
+        });
       } else {
         res.status(401).send("Invalid email or password");
       }
